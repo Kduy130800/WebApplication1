@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "ListBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.TitlePageName</h2>
+
+<div class="row">
+    @foreach(var item in Model)
+            {
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel panel-heading">
+                            @item.Title
+                            @Html.ActionLink("Edit", "Edit", new {id=item.Id}, new {@class="pull-right"})
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                <strong>Tác giả:</strong>@item.Author
+                            </p>
+                            <p>
+                                <strong>Năm Xuất Bản:</strong>@item.Publicyear
+                            </p>
+                            <p>
+                                <strong>Giá:</strong>@item.Price
+                            </p>
+                            <p>
+                                <img src="/@item.ImageCover" alt="hinh thumnail" />
+                            </p>
+
+                        </div>
+                        <div class="panel-footer clearfix">
+                            <div class="pull-right">
+                                <a href="#" class="btn btn-primary">Mua </a>
+                                <a href="#" class="btn btn-default">Thêm thông tin...</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+</div>
+
